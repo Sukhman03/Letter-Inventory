@@ -1,6 +1,6 @@
 public class LetterInventory {
         private int[] letterCounts = new int[26]; // tracks counts of letters
-        private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        private final char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
                 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}; // array with alphabet
         private int totalLetters;
 
@@ -30,12 +30,15 @@ public class LetterInventory {
             count++;
         }
         if (isValidChar == false) {
-            throw new IllegalArgumentException ("Character is not in the alphabet"); // throws exception with message
+            throw new IllegalArgumentException ("Character Is Not In The Alphabet."); // throws exception with message
         }
         return letterCounts[locateLetter];
     }
 
     public void set(char letter, int value) { // sets count for the given letter to given value
+        if (value < 0) {
+            throw new IllegalArgumentException("Number Cannot Be Negative.");
+        }
         boolean isValidChar = false; // checks if a valid char is passed
         int count = 0;
         for (char letterCheck : alphabet) {
@@ -48,7 +51,7 @@ public class LetterInventory {
             count++;
         }
         if (isValidChar == false) {
-            throw new IllegalArgumentException("Character is not in the alphabet"); // throws exception with message
+            throw new IllegalArgumentException("Character Is Not In The Alphabet."); // throws exception with message
         }
     }
 
@@ -72,7 +75,7 @@ public class LetterInventory {
                 inventory += alphabet[i]; // adds letter to string
             }
         }
-        return inventory += "]";
+        return inventory + "]";
     }
 
     public LetterInventory add(LetterInventory other) { // returns sum of total letters between other and this
