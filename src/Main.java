@@ -30,11 +30,16 @@ public class Main {
         // get method
         System.out.println(inventory1.get('R'));
 
+
         // subtract method, prints the letter inventory
         LetterInventory sub1 = new LetterInventory("AABBCCDDEEFF");
         LetterInventory sub2 = new LetterInventory("ABCDEF");
         LetterInventory sub3 = sub1.subtract(sub2);
         System.out.println(sub3.toString());
+
+        // set method
+        sub1.set('S', 3);
+        System.out.println(sub1.toString());
 
     }
 }
