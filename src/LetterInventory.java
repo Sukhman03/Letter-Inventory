@@ -72,7 +72,7 @@ public class LetterInventory {
 
         for (int i = 0; i < 26; i++) { // goes through every letter
             for (int j = letterCounts[i]; j > 0; j--) { // checks how many of the letter is in inventory
-                inventory += alphabet[i]; // adds letter to string
+                inventory += Character.toLowerCase(alphabet[i]); // adds letter to string
             }
         }
         return inventory + "]";
