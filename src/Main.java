@@ -1,27 +1,20 @@
-import java.util.Arrays;
-
+// Programmer: Sukhman Lally
+// Class: CS145: Face to Face
+// Date: 02/05/2023
+// Assignment: LetterInventory
+// Reference Materials:
+// Purpose: Creating an inventory to store and count letters
 public class Main {
     public static void main(String[] args) {
-        char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-                'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        int[] letterCounts = new int[26];
-        int totalLetters = 0;
-        String data = "Hello World!";
-        char letter = '%';
-        int count = 0;
-        boolean isValidChar = false;
-        for (char letterCheck : alphabet) {
-            if (letterCheck == letter) {
-                letterCounts[count]++;
-                System.out.println(letterCounts[count]);
-                isValidChar = true;
-            }
-            count++;
-        }
-        if (isValidChar == false) {
-                throw new IllegalArgumentException ("Character is not in the alphabet.");
-        }
-        System.out.println(Arrays.toString(letterCounts));
-        System.out.println(totalLetters);
+        LetterInventory inventory1 = new LetterInventory("AABBCCDDEEFFGGHHIIJJKK");
+        LetterInventory inventory2 = new LetterInventory("abcdefghijk");
+        //System.out.println(inventory1.size());
+        //System.out.println(inventory2.size());
+       LetterInventory sum = inventory1.add(inventory2);
+       // System.out.println(sum.size());
+        //System.out.println(sum.toString());
+        LetterInventory diff = inventory1.subtract(inventory2);
+        System.out.println(diff.size());
+        System.out.println(diff.toString());
     }
 }
